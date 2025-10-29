@@ -2,13 +2,17 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
+import { toast } from "@/hooks/use-toast";
 
 const Index = () => {
   const [text, setText] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", text);
+    toast({
+      title: "Message Submitted",
+      description: text || "No message entered",
+    });
   };
 
   return (
